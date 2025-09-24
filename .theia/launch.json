@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Lad2_2",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "Lad2_2",
+                "resourceId": "/Lad2_2"
+            }
+        },
+        {
+            "name": "Lab2_2",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "Lab2_2",
+                "resourceId": "/Lab2_2"
+            }
+        },
+        {
+            "name": "Lad2_1.3",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "Lad2_1.3",
+                "resourceId": "/Lad2_1.3"
+            }
+        },
+        {
+            "name": "Lab2_3",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "Lab2_3",
+                "resourceId": "/Lab2_3"
+            }
+        }
+    ]
+}

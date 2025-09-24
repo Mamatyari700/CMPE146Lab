@@ -1,0 +1,12 @@
+[
+   {
+      "directory" : "C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3\" -I\"C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3/Debug\" -I\"C:/ti/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"C:/ti/mspm0_sdk_2_05_01_00/source\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3/Lab2_1.3.c"
+   },
+   {
+      "directory" : "C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3/Debug",
+      "command"   : "clang++ -D__MSPM0G3507__ -I\"C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3\" -I\"C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3/Debug\" -I\"C:/ti/mspm0_sdk_2_05_01_00/source/third_party/CMSIS/Core/Include\" -I\"C:/ti/mspm0_sdk_2_05_01_00/source\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/armv7em-ti-none-eabihf/c++/v1\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c++/v1\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/lib/clang/18/include\" -isystem\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-armllvm_4.0.3.LTS/include/c\" -xc",
+      "file"      : "C:/Users/panda/Documents/CMPE 146/CMPE146Lab/Lad2_1.3/Debug/ti_msp_dl_config.c"
+   }
+]
