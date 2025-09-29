@@ -43,17 +43,17 @@ int main(void)
         if(!status_pb && !pressed){
             timeStart = DL_Timer_getTimerCount(TIMG12);
             pressed = true;
-            printf("timer count Start: %d\n", timeStart);
+            /*printf("timer count Start: %d\n", timeStart);*/
         }
-        else if(status_pb && pressed){
+        else if (status_pb && pressed){
              timeStop = DL_Timer_getTimerCount(TIMG12);
-            printf("timer count Stop: %d\n", timeStop);
-            duration = (timeStop - timeStart) * 1000 / sysClock;//convert the time to mS
+            /*printf("timer count Stop: %d\n", timeStop);*/
+            duration = (((uint64_t)(timeStop - timeStart)) * 1000) / sysClock;//convert the time to mS
+            
             // print the duration 
             printf("Duration: %dmS\n", duration);
             pressed = false;
         }
       
-   
     }
 }
