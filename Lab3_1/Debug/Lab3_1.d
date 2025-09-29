@@ -1,6 +1,6 @@
 # FIXED
 
-Lab2_3.o: ../Lab2_3.c \
+Lab3_1.o: ../Lab3_1.c \
  ti_msp_dl_config.h \
  C:/ti/mspm0_sdk_2_05_01_00/source/ti/devices/msp/msp.h \
  C:/ti/mspm0_sdk_2_05_01_00/source/ti/devices/DeviceFamily.h \

@@ -1,4 +1,4 @@
-"./Lab2_3.o"
+"./Lab3_1.o"
 "./ti_msp_dl_config.o"
 "./startup_mspm0g350x_ticlang.o"
 -l"./device_linker.cmd"

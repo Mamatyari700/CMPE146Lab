@@ -9,7 +9,7 @@ SYSCFG_SRCS += \
 ../empty.syscfg 
 
 C_SRCS += \
-../Lab2_3.c \
+../Lab3_1.c \
 ./ti_msp_dl_config.c \
 C:/ti/mspm0_sdk_2_05_01_00/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0g350x_ticlang.c 
 
@@ -22,7 +22,7 @@ GEN_FILES += \
 ./ti_msp_dl_config.c 
 
 C_DEPS += \
-./Lab2_3.d \
+./Lab3_1.d \
 ./ti_msp_dl_config.d \
 ./startup_mspm0g350x_ticlang.d 
 
@@ -30,7 +30,7 @@ GEN_OPTS += \
 ./device.opt 
 
 OBJS += \
-./Lab2_3.o \
+./Lab3_1.o \
 ./ti_msp_dl_config.o \
 ./startup_mspm0g350x_ticlang.o 
 
@@ -39,7 +39,7 @@ GEN_MISC_FILES += \
 ./ti_msp_dl_config.h 
 
 OBJS__QUOTED += \
-"Lab2_3.o" \
+"Lab3_1.o" \
 "ti_msp_dl_config.o" \
 "startup_mspm0g350x_ticlang.o" 
 
@@ -48,7 +48,7 @@ GEN_MISC_FILES__QUOTED += \
 "ti_msp_dl_config.h" 
 
 C_DEPS__QUOTED += \
-"Lab2_3.d" \
+"Lab3_1.d" \
 "ti_msp_dl_config.d" \
 "startup_mspm0g350x_ticlang.d" 
 
@@ -58,7 +58,7 @@ GEN_FILES__QUOTED += \
 "ti_msp_dl_config.c" 
 
 C_SRCS__QUOTED += \
-"../Lab2_3.c" \
+"../Lab3_1.c" \
 "./ti_msp_dl_config.c" \
 "C:/ti/mspm0_sdk_2_05_01_00/source/ti/devices/msp/m0p/startup_system_files/ticlang/startup_mspm0g350x_ticlang.c" 
 
