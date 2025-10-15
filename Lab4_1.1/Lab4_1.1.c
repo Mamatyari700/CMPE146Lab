@@ -99,12 +99,12 @@ int main(void)
     NVIC_EnableIRQ(DMA_INT_IRQn);
 
 
-   srand(12345); // Set seed for random number generator
-   for (int i=0; i<10240; i++) {
-       myData[i] = rand();
-   }
+    srand(12345); // Set seed for random number generator
+    for (int i=0; i<10240; i++) {
+        myData[i] = rand();
+    }
 
-   DL_DMA_setSrcAddr(DMA, DMA_CH0_CHAN_ID, (uint32_t)&myData[0]);
+    DL_DMA_setSrcAddr(DMA, DMA_CH0_CHAN_ID, (uint32_t)&myData[0]);
     DL_DMA_setDestAddr(DMA, DMA_CH0_CHAN_ID, DL_CRC_getCRCINAddr(CRC));
     DL_DMA_setTransferSize(DMA, DMA_CH0_CHAN_ID, DATA_SIZE);
     DL_DMA_enableChannel(DMA, DMA_CH0_CHAN_ID);
