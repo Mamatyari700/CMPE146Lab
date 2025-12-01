@@ -1,0 +1,683 @@
+******************************************************************************
+            TI ARM Clang Linker PC v4.0.3                      
+******************************************************************************
+>> Linked Sun Nov 30 17:49:23 2025
+
+OUTPUT FILE NAME:   <Lab7_3.1.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000030d9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  00003378  0001cc88  R  X
+  SRAM                  20200000   00008000  000015f4  00006a0c  RW X
+  BCR_CONFIG            41c00000   000000ff  00000000  000000ff  R   
+  BSL_CONFIG            41c00100   00000080  00000000  00000080  R   
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00003378   00003378    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    00003260   00003260    r-x .text
+  00003320    00003320    00000018   00000018    r-- .rodata
+  00003338    00003338    00000040   00000040    r-- .cinit
+20200000    20200000    000013f4   00000000    rw-
+  20200000    20200000    00001378   00000000    rw- .bss
+  20201378    20201378    0000007c   00000000    rw- .data
+20207e00    20207e00    00000200   00000000    rw-
+  20207e00    20207e00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c0     
+                  00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
+
+.text      0    000000c0    00003260     
+                  000000c0    000001d2     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : queue.o (.text.xQueueGenericSend)
+                  00000292    00000002     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  00000294    000001c0     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : heap_4.o (.text.pvPortMalloc)
+                  00000454    000001a4                                                       : queue.o (.text.xQueueReceive)
+                  000005f8    00000188                                                       : port.o (.text.vPortSuppressTicksAndSleep)
+                  00000780    00000158                                                       : tasks.o (.text.xTaskIncrementTick)
+                  000008d8    00000154                                                       : timers.o (.text.prvProcessReceivedCommands)
+                  00000a2c    0000014c                                                       : pthread.o (.text.pthread_create)
+                  00000b78    00000134                                                       : tasks.o (.text.xTaskResumeAll)
+                  00000cac    00000120                                                       : queue.o (.text.xQueueGenericSendFromISR)
+                  00000dcc    0000011c                                                       : tasks.o (.text.prvInitialiseNewTask)
+                  00000ee8    00000110                                                       : tasks.o (.text.vTaskSuspend)
+                  00000ff8    000000ec                                                       : tasks.o (.text.vTaskSwitchContext)
+                  000010e4    000000e8                                                       : tasks.o (.text.vTaskDelete)
+                  000011cc    000000e0                                                       : tasks.o (.text.prvAddNewTaskToReadyList)
+                  000012ac    000000d4                                                       : queue.o (.text.prvCopyDataToQueue)
+                  00001380    000000c4                                                       : tasks.o (.text.xTaskPriorityDisinherit)
+                  00001444    000000c0                                                       : queue.o (.text.xQueueGenericCreateStatic)
+                  00001504    000000bc                                                       : heap_4.o (.text.prvInsertBlockIntoFreeList)
+                  000015c0    000000bc                                                       : tasks.o (.text.vTaskStartScheduler)
+                  0000167c    000000b6                                                       : queue.o (.text.prvUnlockQueue)
+                  00001732    00000002                                                       : port.o (.text.SVC_Handler)
+                  00001734    000000b4                                                       : tasks.o (.text.xTaskCheckForTimeOut)
+                  000017e8    000000b0                                                       : tasks.o (.text.prvAddCurrentTaskToDelayedList)
+                  00001898    000000b0                                                       : heap_4.o (.text.prvHeapInit)
+                  00001948    000000b0                                                       : timers.o (.text.prvSwitchTimerLists)
+                  000019f8    000000b0                                                       : tasks.o (.text.xTaskRemoveFromEventList)
+                  00001aa8    000000aa                                                       : queue.o (.text.xQueueGenericCreate)
+                  00001b52    00000002     libclang_rt.builtins.a : aeabi_div0.c.obj (.text.__aeabi_idiv0)
+                  00001b54    000000a0     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : heap_4.o (.text.vPortFree)
+                  00001bf4    000000a0                                                       : queue.o (.text.xQueueGenericReset)
+                  00001c94    0000009a     libc.a : memcpy16.S.obj (.text:memcpy)
+                  00001d2e    00000094     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : tasks.o (.text.xTaskCreateStatic)
+                  00001dc2    00000092                                                       : tasks.o (.text.xTaskCreate)
+                  00001e54    00000090                                                       : timers.o (.text.xTimerGenericCommand)
+                  00001ee4    0000008c                                                       : timers.o (.text.prvProcessTimerOrBlockTask)
+                  00001f70    0000008c                                                       : pthread.o (.text.removeThreadKeys)
+                  00001ffc    00000084                                                       : timers.o (.text.prvInsertTimerInActiveList)
+                  00002080    0000007c                                                       : tasks.o (.text.eTaskConfirmSleepModeStatus)
+                  000020fc    0000007c                                                       : tasks.o (.text.prvInitialiseTaskLists)
+                  00002178    0000007c                                                       : timers.o (.text.prvProcessExpiredTimer)
+                  000021f4    0000007c                                                       : timers.o (.text.xTimerCreateTimerTask)
+                  00002270    0000007c     libc.a : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  000022ec    00000074     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : tasks.o (.text.prvGetExpectedIdleTime)
+                  00002360    00000070     Lab7_3.1.o (.text.main)
+                  000023d0    0000006e     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : pthread.o (.text.pthread_exit)
+                  0000243e    00000002     Lab7_3.1.o (.text.vApplicationStackOverflowHook)
+                  00002440    0000006c     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : timers.o (.text.prvCheckForValidListAndQueue)
+                  000024ac    0000006c                                                       : list.o (.text.vListInsert)
+                  00002518    0000006a                                                       : queue.o (.text.vQueueWaitForMessageRestricted)
+                  00002582    00000062     libc.a : memset16.S.obj (.text:memset)
+                  000025e4    0000005c     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : tasks.o (.text.prvIdleTask)
+                  00002640    0000005a                                                       : pthread.o (.text.pthread_setcancelstate)
+                  0000269a    00000002     --HOLE-- [fill = 0]
+                  0000269c    00000054                                                       : aeabi_portable.o (.text.__aeabi_errno_addr)
+                  000026f0    00000054                                                       : port.o (.text.vPortSetupTimerInterrupt)
+                  00002744    00000050                                                       : tasks.o (.text.prvCheckTasksWaitingTermination)
+                  00002794    00000050                                                       : tasks.o (.text.prvDeleteTCB)
+                  000027e4    00000050                                                       : sleep.o (.text.usleep)
+                  00002834    00000050                                                       : tasks.o (.text.vTaskDelay)
+                  00002884    00000050                                                       : tasks.o (.text.vTaskSetThreadLocalStoragePointer)
+                  000028d4    0000004c                                                       : tasks.o (.text.pvTaskGetThreadLocalStoragePointer)
+                  00002920    0000004c                                                       : port.o (.text.pxPortInitialiseStack)
+                  0000296c    00000048     Lab7_3.1.o (.text.greenLEDThread)
+                  000029b4    00000048     Lab7_3.1.o (.text.redLEDThread)
+                  000029fc    00000048     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : sleep.o (.text.sleep)
+                  00002a44    00000048                                                       : list.o (.text.uxListRemove)
+                  00002a8c    00000046                                                       : queue.o (.text.prvInitialiseNewQueue)
+                  00002ad2    0000000e                                                       : list.o (.text.vListInitialiseItem)
+                  00002ae0    00000044                                                       : port.o (.text.PendSV_Handler)
+                  00002b24    00000044                                                       : queue.o (.text.prvCopyDataFromQueue)
+                  00002b68    00000044                                                       : tasks.o (.text.vTaskPlaceOnEventListRestricted)
+                  00002bac    00000040     libclang_rt.builtins.a : aeabi_uidivmod.S.obj (.text.__aeabi_uidivmod)
+                  00002bec    00000040     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : port.o (.text.xPortStartScheduler)
+                  00002c2c    0000003c                                                       : timers.o (.text.prvSampleTimeNow)
+                  00002c68    0000003c     libc.a : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  00002ca4    0000003a     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : list.o (.text.vListInsertEnd)
+                  00002cde    00000002     --HOLE-- [fill = 0]
+                  00002ce0    00000038                                                       : timers.o (.text.prvGetNextExpireTime)
+                  00002d18    00000038                                                       : tasks.o (.text.xTaskGetApplicationTaskTag)
+                  00002d50    00000038                                                       : tasks.o (.text.xTaskGetSchedulerState)
+                  00002d88    00000034                                                       : pthread.o (.text.pthread_attr_setschedparam)
+                  00002dbc    00000004     libsysbm.a : hostexit.c.obj (.text.HOSTexit)
+                  00002dc0    00000034     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : port.o (.text.vPortStartFirstTask)
+                  00002df4    00000034                                                       : tasks.o (.text.vTaskPlaceOnEventList)
+                  00002e28    00000034                                                       : tasks.o (.text.vTaskSetApplicationTaskTag)
+                  00002e5c    00000034                                                       : tasks.o (.text.vTaskStepTick)
+                  00002e90    00000032                                                       : queue.o (.text.vQueueDelete)
+                  00002ec2    00000002     --HOLE-- [fill = 0]
+                  00002ec4    00000030                                                       : tasks.o (.text.prvResetNextTaskUnblockTime)
+                  00002ef4    00000030                                                       : port.o (.text.prvTaskExitError)
+                  00002f24    0000002e                                                       : queue.o (.text.prvIsQueueFull)
+                  00002f52    0000002e                                                       : pthread.o (.text.pthread_attr_setdetachstate)
+                  00002f80    0000002c     ti_msp_dl_config.o (.text.SYSCFG_DL_initPower)
+                  00002fac    0000002c     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : port.o (.text.SysTick_Handler)
+                  00002fd8    0000002c                                                       : pthread.o (.text._pthread_cleanup_pop)
+                  00003004    0000002c                                                       : list.o (.text.vListInitialise)
+                  00003030    0000002c                                                       : port.o (.text.vPortExitCritical)
+                  0000305c    0000002a                                                       : queue.o (.text.prvIsQueueEmpty)
+                  00003086    00000002     --HOLE-- [fill = 0]
+                  00003088    00000028                                                       : StaticAllocs_freertos.o (.text.vApplicationGetIdleTaskMemory)
+                  000030b0    00000028                                                       : StaticAllocs_freertos.o (.text.vApplicationGetTimerTaskMemory)
+                  000030d8    00000028     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noargs)
+                  00003100    00000024     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : PTLS.o (.text.PTLS_taskDeleteHook)
+                  00003124    00000020                                                       : tasks.o (.text.vTaskInternalSetTimeOutState)
+                  00003144    0000001e                                                       : pthread.o (.text._pthread_runStub)
+                  00003162    0000001e                                                       : timers.o (.text.prvTimerTask)
+                  00003180    0000001c     ti_msp_dl_config.o (.text.SYSCFG_DL_SYSCTL_init)
+                  0000319c    0000001c     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : pthread.o (.text.pthread_attr_init)
+                  000031b8    0000001a                                                       : PTLS.o (.text.PTLS_getBuf)
+                  000031d2    0000001a                                                       : PTLS.o (.text.PTLS_setBuf)
+                  000031ec    00000018     ti_msp_dl_config.o (.text.SYSCFG_DL_GPIO_init)
+                  00003204    00000018     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : pthread.o (.text.pthread_self)
+                  0000321c    00000018                                                       : port.o (.text.vPortEnterCritical)
+                  00003234    00000018                                                       : port.o (.text.vPortYield)
+                  0000324c    00000014                                                       : tasks.o (.text.xTaskGetCurrentTaskHandle)
+                  00003260    00000014                                                       : tasks.o (.text.xTaskGetTickCount)
+                  00003274    00000012                                                       : pthread.o (.text.pthread_attr_setstacksize)
+                  00003286    00000012     libc.a : copy_decompress_none.c.obj (.text:decompress:none)
+                  00003298    00000010     ti_msp_dl_config.o (.text.SYSCFG_DL_init)
+                  000032a8    00000010     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : tasks.o (.text.vTaskSuspendAll)
+                  000032b8    00000010     libc.a : copy_zero_init.c.obj (.text:decompress:ZI)
+                  000032c8    0000000e     libclang_rt.builtins.a : aeabi_memset.S.obj (.text.__aeabi_memset)
+                  000032d6    00000002     --HOLE-- [fill = 0]
+                  000032d8    0000000c                            : aeabi_memset.S.obj (.text.__aeabi_memclr)
+                  000032e4    0000000c     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : tasks.o (.text.vTaskMissedYield)
+                  000032f0    0000000a     driverlib.a : dl_common.o (.text.DL_Common_delayCycles)
+                  000032fa    00000002     --HOLE-- [fill = 0]
+                  000032fc    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
+                  00003304    00000008     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : port.o (.text.ulSetInterruptMaskFromISR)
+                  0000330c    00000006                                                       : port.o (.text.vClearInterruptMaskFromISR)
+                  00003312    00000006     libc.a : exit.c.obj (.text:abort)
+                  00003318    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  0000331c    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+
+.cinit     0    00003338    00000040     
+                  00003338    00000018     (.cinit..data.load) [load image, compression = lzss]
+                  00003350    0000000c     (__TI_handler_table)
+                  0000335c    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00003364    00000010     (__TI_cinit_table)
+                  00003374    00000004     --HOLE-- [fill = 0]
+
+.rodata    0    00003320    00000018     
+                  00003320    00000008     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : timers.o (.rodata.str1.6031452896567546882.1)
+                  00003328    00000005                                                       : tasks.o (.rodata.str1.13344916649340266805.1)
+                  0000332d    00000002                                                       : pthread.o (.rodata.str1.301604644627550129.1)
+                  0000332f    00000001     --HOLE-- [fill = 0]
+                  00003330    00000004                                                       : tasks.o (.rodata.uxTopUsedPriority)
+                  00003334    00000004     --HOLE-- [fill = 0]
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.bss       0    20200000    00001378     UNINITIALIZED
+                  20200000    00000c00     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : heap_4.o (.bss.ucHeap)
+                  20200c00    00000200                                                       : StaticAllocs_freertos.o (.bss.vApplicationGetIdleTaskMemory.uxIdleTaskStack)
+                  20200e00    00000200                                                       : StaticAllocs_freertos.o (.bss.vApplicationGetTimerTaskMemory.uxTimerTaskStack)
+                  20201000    000000f0                                                       : timers.o (.bss.prvCheckForValidListAndQueue.ucStaticTimerQueueStorage)
+                  202010f0    000000c8                                                       : tasks.o (.bss.pxReadyTasksLists)
+                  202011b8    00000064                                                       : StaticAllocs_freertos.o (.bss.vApplicationGetIdleTaskMemory.xIdleTaskTCB)
+                  2020121c    00000064                                                       : StaticAllocs_freertos.o (.bss.vApplicationGetTimerTaskMemory.xTimerTaskTCB)
+                  20201280    00000050                                                       : timers.o (.bss.prvCheckForValidListAndQueue.xStaticTimerQueue)
+                  202012d0    00000014                                                       : timers.o (.bss.xActiveTimerList1)
+                  202012e4    00000014                                                       : timers.o (.bss.xActiveTimerList2)
+                  202012f8    00000014                                                       : tasks.o (.bss.xDelayedTaskList1)
+                  2020130c    00000014                                                       : tasks.o (.bss.xDelayedTaskList2)
+                  20201320    00000014                                                       : tasks.o (.bss.xPendingReadyList)
+                  20201334    00000014                                                       : tasks.o (.bss.xSuspendedTaskList)
+                  20201348    00000014                                                       : tasks.o (.bss.xTasksWaitingTermination)
+                  2020135c    00000008                                                       : heap_4.o (.bss.xStart)
+                  20201364    00000004                                                       : aeabi_portable.o (.bss.main_reent)
+                  20201368    00000004                                                       : timers.o (.bss.pxCurrentTimerList)
+                  2020136c    00000004                                                       : tasks.o (.bss.pxDelayedTaskList)
+                  20201370    00000004                                                       : tasks.o (.bss.pxOverflowDelayedTaskList)
+                  20201374    00000004                                                       : timers.o (.bss.pxOverflowTimerList)
+
+.data      0    20201378    0000007c     UNINITIALIZED
+                  20201378    00000014     freertos_builds_LP_MSPM0G3507_release_ticlang.lib : pthread.o (.data.defaultPthreadAttrs)
+                  2020138c    00000004                                                       : timers.o (.data.prvSampleTimeNow.xLastTime)
+                  20201390    00000004                                                       : tasks.o (.data.pxCurrentTCB)
+                  20201394    00000004                                                       : heap_4.o (.data.pxEnd)
+                  20201398    00000004                                                       : port.o (.data.ulStoppedTimerCompensation)
+                  2020139c    00000004                                                       : port.o (.data.ulTimerCountsForOneTick)
+                  202013a0    00000004                                                       : port.o (.data.uxCriticalNesting)
+                  202013a4    00000004                                                       : tasks.o (.data.uxCurrentNumberOfTasks)
+                  202013a8    00000004                                                       : tasks.o (.data.uxDeletedTasksWaitingCleanUp)
+                  202013ac    00000004                                                       : tasks.o (.data.uxSchedulerSuspended)
+                  202013b0    00000004                                                       : tasks.o (.data.uxTaskNumber)
+                  202013b4    00000004                                                       : tasks.o (.data.uxTopReadyPriority)
+                  202013b8    00000004                                                       : heap_4.o (.data.xBlockAllocatedBit)
+                  202013bc    00000004                                                       : heap_4.o (.data.xFreeBytesRemaining)
+                  202013c0    00000004                                                       : tasks.o (.data.xIdleTaskHandle)
+                  202013c4    00000004                                                       : port.o (.data.xMaximumPossibleSuppressedTicks)
+                  202013c8    00000004                                                       : heap_4.o (.data.xMinimumEverFreeBytesRemaining)
+                  202013cc    00000004                                                       : tasks.o (.data.xNextTaskUnblockTime)
+                  202013d0    00000004                                                       : tasks.o (.data.xNumOfOverflows)
+                  202013d4    00000004                                                       : heap_4.o (.data.xNumberOfSuccessfulAllocations)
+                  202013d8    00000004                                                       : heap_4.o (.data.xNumberOfSuccessfulFrees)
+                  202013dc    00000004                                                       : tasks.o (.data.xPendedTicks)
+                  202013e0    00000004                                                       : tasks.o (.data.xSchedulerRunning)
+                  202013e4    00000004                                                       : tasks.o (.data.xTickCount)
+                  202013e8    00000004                                                       : timers.o (.data.xTimerQueue)
+                  202013ec    00000004                                                       : timers.o (.data.xTimerTaskHandle)
+                  202013f0    00000004                                                       : tasks.o (.data.xYieldPending)
+
+.stack     0    20207e00    00000200     UNINITIALIZED
+                  20207e00    00000004     libc.a : boot_cortex_m.c.obj (.stack)
+                  20207e04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20200000    00000000     UNINITIALIZED
+
+__llvm_prf_bits 
+*          0    20200000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       Lab7_3.1.o                     258     0         0      
+       ti_msp_dl_config.o             112     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         370     0         0      
+                                                               
+    .\freertos\ticlang\
+       startup_mspm0g350x_ticlang.o   6       192       0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         6       192       0      
+                                                               
+    C:/Users/panda/Documents/CMPE 146/CMPE146Lab/freertos_builds_LP_MSPM0G3507_release_ticlang/Debug/freertos_builds_LP_MSPM0G3507_release_ticlang.lib
+       tasks.o                        4446    9         360    
+       heap_4.o                       972     0         3104   
+       queue.o                        2472    0         0      
+       timers.o                       1434    8         380    
+       StaticAllocs_freertos.o        80      0         1224   
+       port.o                         936     0         16     
+       pthread.o                      914     2         20     
+       list.o                         296     0         0      
+       sleep.o                        152     0         0      
+       PTLS.o                         88      0         0      
+       aeabi_portable.o               84      0         4      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         11874   19        5108   
+                                                               
+    C:/ti/mspm0_sdk_2_05_01_00/source/ti/driverlib/lib/ticlang/m0p/mspm0g1x0x_g3x0x/driverlib.a
+       dl_common.o                    10      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         10      0         0      
+                                                               
+    C:\ti\ccs2020\ccs\tools\compiler\ti-cgt-armllvm_4.0.3.LTS\lib\armv6m-ti-none-eabi/c/libc.a
+       memcpy16.S.obj                 154     0         0      
+       copy_decompress_lzss.c.obj     124     0         0      
+       memset16.S.obj                 98      0         0      
+       autoinit.c.obj                 60      0         0      
+       boot_cortex_m.c.obj            40      0         0      
+       copy_decompress_none.c.obj     18      0         0      
+       copy_zero_init.c.obj           16      0         0      
+       exit.c.obj                     6       0         0      
+       pre_init.c.obj                 4       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         520     0         0      
+                                                               
+    C:\ti\ccs2020\ccs\tools\compiler\ti-cgt-armllvm_4.0.3.LTS\lib\armv6m-ti-none-eabi/c/libsysbm.a
+       hostexit.c.obj                 4       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         4       0         0      
+                                                               
+    C:\ti\ccs2020\ccs\tools\compiler\ti-cgt-armllvm_4.0.3.LTS\lib\armv6m-ti-none-eabi/libclang_rt.builtins.a
+       aeabi_uidivmod.S.obj           64      0         0      
+       aeabi_memset.S.obj             26      0         0      
+       aeabi_memcpy.S.obj             8       0         0      
+       aeabi_div0.c.obj               2       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         100     0         0      
+                                                               
+       Stack:                         0       0         512    
+       Linker Generated:              0       60        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   12884   271       5620   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00003364 records: 2, size/record: 8, table size: 16
+	.data: load addr=00003338, load size=00000018 bytes, run addr=20201378, run size=0000007c bytes, compression=lzss
+	.bss: load addr=0000335c, load size=00000008 bytes, run addr=20200000, run size=00001378 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00003350 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                              
+-------   ----                              
+00000293  ADC0_IRQHandler                   
+00000293  ADC1_IRQHandler                   
+00000293  AES_IRQHandler                    
+00002dbc  C$$EXIT                           
+00000293  CANFD0_IRQHandler                 
+00000293  DAC0_IRQHandler                   
+000032f1  DL_Common_delayCycles             
+00000293  DMA_IRQHandler                    
+00000293  Default_Handler                   
+00000293  GROUP0_IRQHandler                 
+00000293  GROUP1_IRQHandler                 
+00002dbd  HOSTexit                          
+00000293  HardFault_Handler                 
+00000293  I2C0_IRQHandler                   
+00000293  I2C1_IRQHandler                   
+00000293  NMI_Handler                       
+000031b9  PTLS_getBuf                       
+000031d3  PTLS_setBuf                       
+00003101  PTLS_taskDeleteHook               
+00002ae1  PendSV_Handler                    
+00000293  RTC_IRQHandler                    
+00003319  Reset_Handler                     
+00000293  SPI0_IRQHandler                   
+00000293  SPI1_IRQHandler                   
+00001733  SVC_Handler                       
+000031ed  SYSCFG_DL_GPIO_init               
+00003181  SYSCFG_DL_SYSCTL_init             
+00003299  SYSCFG_DL_init                    
+00002f81  SYSCFG_DL_initPower               
+00002fad  SysTick_Handler                   
+00000293  TIMA0_IRQHandler                  
+00000293  TIMA1_IRQHandler                  
+00000293  TIMG0_IRQHandler                  
+00000293  TIMG12_IRQHandler                 
+00000293  TIMG6_IRQHandler                  
+00000293  TIMG7_IRQHandler                  
+00000293  TIMG8_IRQHandler                  
+00000293  UART0_IRQHandler                  
+00000293  UART1_IRQHandler                  
+00000293  UART2_IRQHandler                  
+00000293  UART3_IRQHandler                  
+20208000  __STACK_END                       
+00000200  __STACK_SIZE                      
+00000000  __TI_ATRegion0_region_sz          
+00000000  __TI_ATRegion0_src_addr           
+00000000  __TI_ATRegion0_trg_addr           
+00000000  __TI_ATRegion1_region_sz          
+00000000  __TI_ATRegion1_src_addr           
+00000000  __TI_ATRegion1_trg_addr           
+00000000  __TI_ATRegion2_region_sz          
+00000000  __TI_ATRegion2_src_addr           
+00000000  __TI_ATRegion2_trg_addr           
+00003364  __TI_CINIT_Base                   
+00003374  __TI_CINIT_Limit                  
+00003374  __TI_CINIT_Warm                   
+00003350  __TI_Handler_Table_Base           
+0000335c  __TI_Handler_Table_Limit          
+00002c69  __TI_auto_init_nobinit_nopinit    
+00002271  __TI_decompress_lzss              
+00003287  __TI_decompress_none              
+ffffffff  __TI_pprof_out_hndl               
+ffffffff  __TI_prof_data_size               
+ffffffff  __TI_prof_data_start              
+00000000  __TI_static_base__                
+000032b9  __TI_zero_init                    
+0000269d  __aeabi_errno_addr                
+00001b53  __aeabi_idiv0                     
+000032d9  __aeabi_memclr                    
+000032d9  __aeabi_memclr4                   
+000032d9  __aeabi_memclr8                   
+000032fd  __aeabi_memcpy                    
+000032fd  __aeabi_memcpy4                   
+000032fd  __aeabi_memcpy8                   
+000032c9  __aeabi_memset                    
+000032c9  __aeabi_memset4                   
+000032c9  __aeabi_memset8                   
+00002bad  __aeabi_uidiv                     
+00002bad  __aeabi_uidivmod                  
+ffffffff  __binit__                         
+UNDEFED   __mpu_init                        
+20207e00  __stack                           
+20200000  __start___llvm_prf_bits           
+20200000  __start___llvm_prf_cnts           
+20200000  __stop___llvm_prf_bits            
+20200000  __stop___llvm_prf_cnts            
+000030d9  _c_int00_noargs                   
+00002fd9  _pthread_cleanup_pop              
+UNDEFED   _system_post_cinit                
+0000331d  _system_pre_init                  
+00003313  abort                             
+ffffffff  binit                             
+00002081  eTaskConfirmSleepModeStatus       
+0000296d  greenLEDThread                    
+00000000  interruptVectors                  
+00002361  main                              
+00001c95  memcpy                            
+00002583  memset                            
+0000319d  pthread_attr_init                 
+00002f53  pthread_attr_setdetachstate       
+00002d89  pthread_attr_setschedparam        
+00003275  pthread_attr_setstacksize         
+00000a2d  pthread_create                    
+000023d1  pthread_exit                      
+00003205  pthread_self                      
+00002641  pthread_setcancelstate            
+00000295  pvPortMalloc                      
+000028d5  pvTaskGetThreadLocalStoragePointer
+20201390  pxCurrentTCB                      
+00002921  pxPortInitialiseStack             
+000029b5  redLEDThread                      
+000029fd  sleep                             
+00003305  ulSetInterruptMaskFromISR         
+000027e5  usleep                            
+00002a45  uxListRemove                      
+00003330  uxTopUsedPriority                 
+00003089  vApplicationGetIdleTaskMemory     
+000030b1  vApplicationGetTimerTaskMemory    
+0000243f  vApplicationStackOverflowHook     
+0000330d  vClearInterruptMaskFromISR        
+00003005  vListInitialise                   
+00002ad3  vListInitialiseItem               
+000024ad  vListInsert                       
+00002ca5  vListInsertEnd                    
+0000321d  vPortEnterCritical                
+00003031  vPortExitCritical                 
+00001b55  vPortFree                         
+000026f1  vPortSetupTimerInterrupt          
+000005f9  vPortSuppressTicksAndSleep        
+00003235  vPortYield                        
+00002e91  vQueueDelete                      
+00002519  vQueueWaitForMessageRestricted    
+00002835  vTaskDelay                        
+000010e5  vTaskDelete                       
+00003125  vTaskInternalSetTimeOutState      
+000032e5  vTaskMissedYield                  
+00002df5  vTaskPlaceOnEventList             
+00002b69  vTaskPlaceOnEventListRestricted   
+00002e29  vTaskSetApplicationTaskTag        
+00002885  vTaskSetThreadLocalStoragePointer 
+000015c1  vTaskStartScheduler               
+00002e5d  vTaskStepTick                     
+00000ee9  vTaskSuspend                      
+000032a9  vTaskSuspendAll                   
+00000ff9  vTaskSwitchContext                
+00002bed  xPortStartScheduler               
+00001aa9  xQueueGenericCreate               
+00001445  xQueueGenericCreateStatic         
+00001bf5  xQueueGenericReset                
+000000c1  xQueueGenericSend                 
+00000cad  xQueueGenericSendFromISR          
+00000455  xQueueReceive                     
+00001735  xTaskCheckForTimeOut              
+00001dc3  xTaskCreate                       
+00001d2f  xTaskCreateStatic                 
+00002d19  xTaskGetApplicationTaskTag        
+0000324d  xTaskGetCurrentTaskHandle         
+00002d51  xTaskGetSchedulerState            
+00003261  xTaskGetTickCount                 
+00000781  xTaskIncrementTick                
+00001381  xTaskPriorityDisinherit           
+000019f9  xTaskRemoveFromEventList          
+00000b79  xTaskResumeAll                    
+000021f5  xTimerCreateTimerTask             
+00001e55  xTimerGenericCommand              
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                              
+-------   ----                              
+00000000  __TI_ATRegion0_region_sz          
+00000000  __TI_ATRegion0_src_addr           
+00000000  __TI_ATRegion0_trg_addr           
+00000000  __TI_ATRegion1_region_sz          
+00000000  __TI_ATRegion1_src_addr           
+00000000  __TI_ATRegion1_trg_addr           
+00000000  __TI_ATRegion2_region_sz          
+00000000  __TI_ATRegion2_src_addr           
+00000000  __TI_ATRegion2_trg_addr           
+00000000  __TI_static_base__                
+00000000  interruptVectors                  
+000000c1  xQueueGenericSend                 
+00000200  __STACK_SIZE                      
+00000293  ADC0_IRQHandler                   
+00000293  ADC1_IRQHandler                   
+00000293  AES_IRQHandler                    
+00000293  CANFD0_IRQHandler                 
+00000293  DAC0_IRQHandler                   
+00000293  DMA_IRQHandler                    
+00000293  Default_Handler                   
+00000293  GROUP0_IRQHandler                 
+00000293  GROUP1_IRQHandler                 
+00000293  HardFault_Handler                 
+00000293  I2C0_IRQHandler                   
+00000293  I2C1_IRQHandler                   
+00000293  NMI_Handler                       
+00000293  RTC_IRQHandler                    
+00000293  SPI0_IRQHandler                   
+00000293  SPI1_IRQHandler                   
+00000293  TIMA0_IRQHandler                  
+00000293  TIMA1_IRQHandler                  
+00000293  TIMG0_IRQHandler                  
+00000293  TIMG12_IRQHandler                 
+00000293  TIMG6_IRQHandler                  
+00000293  TIMG7_IRQHandler                  
+00000293  TIMG8_IRQHandler                  
+00000293  UART0_IRQHandler                  
+00000293  UART1_IRQHandler                  
+00000293  UART2_IRQHandler                  
+00000293  UART3_IRQHandler                  
+00000295  pvPortMalloc                      
+00000455  xQueueReceive                     
+000005f9  vPortSuppressTicksAndSleep        
+00000781  xTaskIncrementTick                
+00000a2d  pthread_create                    
+00000b79  xTaskResumeAll                    
+00000cad  xQueueGenericSendFromISR          
+00000ee9  vTaskSuspend                      
+00000ff9  vTaskSwitchContext                
+000010e5  vTaskDelete                       
+00001381  xTaskPriorityDisinherit           
+00001445  xQueueGenericCreateStatic         
+000015c1  vTaskStartScheduler               
+00001733  SVC_Handler                       
+00001735  xTaskCheckForTimeOut              
+000019f9  xTaskRemoveFromEventList          
+00001aa9  xQueueGenericCreate               
+00001b53  __aeabi_idiv0                     
+00001b55  vPortFree                         
+00001bf5  xQueueGenericReset                
+00001c95  memcpy                            
+00001d2f  xTaskCreateStatic                 
+00001dc3  xTaskCreate                       
+00001e55  xTimerGenericCommand              
+00002081  eTaskConfirmSleepModeStatus       
+000021f5  xTimerCreateTimerTask             
+00002271  __TI_decompress_lzss              
+00002361  main                              
+000023d1  pthread_exit                      
+0000243f  vApplicationStackOverflowHook     
+000024ad  vListInsert                       
+00002519  vQueueWaitForMessageRestricted    
+00002583  memset                            
+00002641  pthread_setcancelstate            
+0000269d  __aeabi_errno_addr                
+000026f1  vPortSetupTimerInterrupt          
+000027e5  usleep                            
+00002835  vTaskDelay                        
+00002885  vTaskSetThreadLocalStoragePointer 
+000028d5  pvTaskGetThreadLocalStoragePointer
+00002921  pxPortInitialiseStack             
+0000296d  greenLEDThread                    
+000029b5  redLEDThread                      
+000029fd  sleep                             
+00002a45  uxListRemove                      
+00002ad3  vListInitialiseItem               
+00002ae1  PendSV_Handler                    
+00002b69  vTaskPlaceOnEventListRestricted   
+00002bad  __aeabi_uidiv                     
+00002bad  __aeabi_uidivmod                  
+00002bed  xPortStartScheduler               
+00002c69  __TI_auto_init_nobinit_nopinit    
+00002ca5  vListInsertEnd                    
+00002d19  xTaskGetApplicationTaskTag        
+00002d51  xTaskGetSchedulerState            
+00002d89  pthread_attr_setschedparam        
+00002dbc  C$$EXIT                           
+00002dbd  HOSTexit                          
+00002df5  vTaskPlaceOnEventList             
+00002e29  vTaskSetApplicationTaskTag        
+00002e5d  vTaskStepTick                     
+00002e91  vQueueDelete                      
+00002f53  pthread_attr_setdetachstate       
+00002f81  SYSCFG_DL_initPower               
+00002fad  SysTick_Handler                   
+00002fd9  _pthread_cleanup_pop              
+00003005  vListInitialise                   
+00003031  vPortExitCritical                 
+00003089  vApplicationGetIdleTaskMemory     
+000030b1  vApplicationGetTimerTaskMemory    
+000030d9  _c_int00_noargs                   
+00003101  PTLS_taskDeleteHook               
+00003125  vTaskInternalSetTimeOutState      
+00003181  SYSCFG_DL_SYSCTL_init             
+0000319d  pthread_attr_init                 
+000031b9  PTLS_getBuf                       
+000031d3  PTLS_setBuf                       
+000031ed  SYSCFG_DL_GPIO_init               
+00003205  pthread_self                      
+0000321d  vPortEnterCritical                
+00003235  vPortYield                        
+0000324d  xTaskGetCurrentTaskHandle         
+00003261  xTaskGetTickCount                 
+00003275  pthread_attr_setstacksize         
+00003287  __TI_decompress_none              
+00003299  SYSCFG_DL_init                    
+000032a9  vTaskSuspendAll                   
+000032b9  __TI_zero_init                    
+000032c9  __aeabi_memset                    
+000032c9  __aeabi_memset4                   
+000032c9  __aeabi_memset8                   
+000032d9  __aeabi_memclr                    
+000032d9  __aeabi_memclr4                   
+000032d9  __aeabi_memclr8                   
+000032e5  vTaskMissedYield                  
+000032f1  DL_Common_delayCycles             
+000032fd  __aeabi_memcpy                    
+000032fd  __aeabi_memcpy4                   
+000032fd  __aeabi_memcpy8                   
+00003305  ulSetInterruptMaskFromISR         
+0000330d  vClearInterruptMaskFromISR        
+00003313  abort                             
+00003319  Reset_Handler                     
+0000331d  _system_pre_init                  
+00003330  uxTopUsedPriority                 
+00003350  __TI_Handler_Table_Base           
+0000335c  __TI_Handler_Table_Limit          
+00003364  __TI_CINIT_Base                   
+00003374  __TI_CINIT_Limit                  
+00003374  __TI_CINIT_Warm                   
+20200000  __start___llvm_prf_bits           
+20200000  __start___llvm_prf_cnts           
+20200000  __stop___llvm_prf_bits            
+20200000  __stop___llvm_prf_cnts            
+20201390  pxCurrentTCB                      
+20207e00  __stack                           
+20208000  __STACK_END                       
+ffffffff  __TI_pprof_out_hndl               
+ffffffff  __TI_prof_data_size               
+ffffffff  __TI_prof_data_start              
+ffffffff  __binit__                         
+ffffffff  binit                             
+UNDEFED   __mpu_init                        
+UNDEFED   _system_post_cinit                
+
+[164 symbols]
