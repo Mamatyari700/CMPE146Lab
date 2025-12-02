@@ -20,12 +20,12 @@
             }
         },
         {
-            "name": "Lad2_1.3",
+            "name": "Lab2_1.3",
             "type": "ccs-debug",
             "request": "launch",
             "projectInfo": {
-                "name": "Lad2_1.3",
-                "resourceId": "/Lad2_1.3"
+                "name": "Lab2_1.3",
+                "resourceId": "/Lab2_1.3"
             }
         },
         {
