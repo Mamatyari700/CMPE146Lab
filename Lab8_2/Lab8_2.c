@@ -1,0 +1,193 @@
+    /* Standard includes */
+    #include <stdio.h>
+
+    /* POSIX header files */
+    #include <pthread.h>
+
+    /* RTOS header files */
+    #include <FreeRTOS.h>
+    #include <task.h>
+    #include <unistd.h>
+    #include <semaphore.h>
+    #include <stdlib.h>
+
+    /* TI includes for driver configuration */
+    #include "ti_msp_dl_config.h"
+
+
+    /* Stack size in bytes */
+    #define THREADSTACKSIZE 1024
+    #define MAX 10
+    #define MIN 1
+
+    /* Set up the hardware ready to run this demo */
+    static void prvSetupHardware(void);
+
+    sem_t some_semaphore;
+
+
+    //struct for the tasks
+    typedef struct {
+        uint32_t iomux;
+        GPIO_Regs *port; 
+        uint32_t pin;
+        char *name;
+    } LedTaskParams;
+
+    static LedTaskParams redParams = {
+        .iomux = IOMUX_PINCM1,
+        .port = GPIOA,
+        .pin = DL_GPIO_PIN_0,
+        .name = "Red LED"
+    };
+
+    static LedTaskParams greenParams = {
+        .iomux = IOMUX_PINCM58,
+        .port = GPIOB,
+        .pin = DL_GPIO_PIN_27,
+        .name = "Green LED"
+    };
+
+    static LedTaskParams blueParams = {
+        .iomux = IOMUX_PINCM50,
+        .port = GPIOB,
+        .pin = DL_GPIO_PIN_22,
+        .name = "Blue LED"
+    };
+
+    void *timingTask(void *arg0){
+        while(1){
+            int freq = (rand() % (MAX + 1 - MIN) + MIN); //max is 10(Hz), min is 1(Hz)
+            int period_us = 1000000 / freq;
+            if(period_us < 1000000){
+                usleep(period_us);
+            }
+            else{
+                sleep(period_us/1000000);
+            }
+            for(int NumLED = 0; NumLED < 3; NumLED++){
+                sem_post(&some_semaphore);
+            }
+
+            usleep(10000);  // 10ms ON
+
+            for(int NumLED = 0; NumLED < 3; NumLED++){ //turn off all LED after 10ms (toggle)
+                sem_post(&some_semaphore);
+            }
+        }
+        return NULL;
+    }
+
+    void *ledTask(void *arg0)
+    {
+        LedTaskParams *params = (LedTaskParams *)arg0;
+        printf("running %s tasks\n", params->name);
+        usleep(rand() % 200000);
+        // GPIO setup
+        DL_GPIO_enablePower(params->port);
+        DL_GPIO_initDigitalOutput(params->iomux);
+        DL_GPIO_enableOutput(params->port, params->pin);
+        if(params->port == GPIOA && params->pin == DL_GPIO_PIN_0){
+            DL_GPIO_setPins(params->port, params->pin); //LED1 is active low
+        }
+        else{
+            DL_GPIO_clearPins(params->port, params->pin); 
+        }
+    
+        while(1) {
+            sem_wait(&some_semaphore);
+            DL_GPIO_togglePins(params->port, params->pin);
+            sched_yield();//give CPU resource to other tasks(prevent to run same tasks forever)
+        }
+
+        return NULL;
+    }
+
+    int main(void)
+    {
+        srand(12345);
+        sem_init(&some_semaphore, 0, 0);
+        pthread_t LED1Thread, LED2Thread, LED3Thread, timingThread;
+        pthread_attr_t attrs;
+        struct sched_param priParam;
+        int retc;
+
+        /* Initialize the system locks */
+    #ifdef __ICCARM__
+        __iar_Initlocks();
+    #endif
+
+        /* Prepare the hardware to run this demo. */
+        prvSetupHardware();
+
+        /* Initialize the attributes structure with default values */
+        pthread_attr_init(&attrs);
+
+        /* Set priority, detach state, and stack size attributes */
+        priParam.sched_priority = 1;
+        retc                    = pthread_attr_setschedparam(&attrs, &priParam);
+        retc |= pthread_attr_setdetachstate(&attrs, PTHREAD_CREATE_DETACHED);
+        retc |= pthread_attr_setstacksize(&attrs, THREADSTACKSIZE);
+        if (retc != 0) {
+            /* failed to set attributes */
+            while (1) {
+            }
+        }
+
+        retc = pthread_create(&LED1Thread, &attrs, ledTask, &redParams);
+        if (retc != 0) {
+            /* pthread_create() failed */
+            while (1) {
+            }
+        }
+
+        retc = pthread_create(&LED2Thread, &attrs, ledTask, &greenParams);
+        if (retc != 0) {
+            /* pthread_create() failed */
+            while (1) {
+            }
+        }
+
+        retc = pthread_create(&LED3Thread, &attrs, ledTask, &blueParams);
+        if (retc != 0) {
+            /* pthread_create() failed */
+            while (1) {
+            }
+        }
+
+        retc = pthread_create(&timingThread, &attrs, timingTask, NULL);
+        if (retc != 0) {
+            /* pthread_create() failed */
+            while (1) {
+            }
+        }
+
+        /* Start the FreeRTOS scheduler */
+        vTaskStartScheduler();
+
+        return (0);
+    }
+
+    static void prvSetupHardware(void)
+    {
+        SYSCFG_DL_init();
+    }
+
+    #if (configCHECK_FOR_STACK_OVERFLOW)
+
+    #if defined(__IAR_SYSTEMS_ICC__)
+    __weak void vApplicationStackOverflowHook(
+        TaskHandle_t pxTask, char *pcTaskName)
+    #elif (defined(__TI_COMPILER_VERSION__))
+    #pragma WEAK(vApplicationStackOverflowHook)
+    void vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName)
+    #elif (defined(__GNUC__) || defined(__ti_version__))
+    void __attribute__((weak))
+    vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName)
+    #endif
+    {
+        /* default to spin upon stack overflow */
+        while (1) {
+        }
+    }
+    #endif

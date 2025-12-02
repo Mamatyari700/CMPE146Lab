@@ -138,7 +138,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@$(MAKE) --no-print-directory -Onone "Lab8_1.out"
 
 dependents:
-	-cd C:/Users/panda/Documents/CMPE\ 146/CMPE146Lab/freertos_builds_LP_MSPM0G3507_release_ticlang/Debug && $(MAKE) clean all
+	-cd C:/Users/panda/Documents/CMPE\ 146/CMPE146Lab/freertos_builds_LP_MSPM0G3507_release_ticlang/Debug && $(MAKE) all
 
 # Tool invocations
 Lab8_1.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS) C:/Users/panda/Documents/CMPE\ 146/CMPE146Lab/freertos_builds_LP_MSPM0G3507_release_ticlang/Debug/freertos_builds_LP_MSPM0G3507_release_ticlang.lib
